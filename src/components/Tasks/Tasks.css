@@ -1,0 +1,79 @@
+.Tasks{
+    width: 100vw;
+    height: 70vh;
+    background-color: #1A1A1A;
+    padding-top: 50px;
+}
+
+.NumberTasksCreatedAndFinished{
+    width: 700px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.NumberTasksCreated ,.TasksFinished{
+    display: flex;
+}
+
+.NumberTasksCreated p{
+    color: #4EA8DE;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-right: 8px;
+}
+
+.TasksFinished p{
+    color: #8284FA;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-right: 8px;
+}
+
+.NumberTasksCreated span, .TasksFinished span{
+    background-color: #333333;
+    color: #D9D9D9;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 0.9rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.TasksFinished span{
+    background-color: #333333;
+    color: #D9D9D9;
+    border-radius: 50%;
+    min-width: 20px;
+    height: 20px;
+    font-size: 0.9rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.emptyTasksArray{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 700px;
+    margin: 0 auto;
+    padding: 50px 30px;
+    border-top: 2px solid #333333;
+    margin-top: 30px;
+}
+
+.emptyTasksArray svg{
+    margin-bottom: 10px;
+}
+
+.emptyTasksArray p{
+    color: #808080;
+    margin-bottom: 5px;
+}

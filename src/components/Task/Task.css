@@ -1,0 +1,76 @@
+.CardTaskNotCompleted{
+    width: 700px;
+    min-height: 45px;
+    margin: 20px auto;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #333333;
+    background-color: #262626;
+
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.CardTaskCompleted{
+    width: 700px;
+    min-height: 45px;
+    margin: 20px auto;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #262626;
+    background-color: #262626;
+
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.ButtonAndTitleTask{
+    display: flex;
+}
+
+.TitleTask{
+    margin-left: 15px;
+}
+
+.TitleTask .TitleTaskNotCompleted{
+    color: #F2F2F2;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.TitleTask .TitleTaskCompleted{
+    color: #808080;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.ButtonCheckedTask .TaskNotCompleted{
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 2px solid #4EA8DE;
+    outline: none;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ButtonCheckedTask .TaskCompleted{
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 2px solid #5E60CE;
+    background-color: #5E60CE;
+    outline: none;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
