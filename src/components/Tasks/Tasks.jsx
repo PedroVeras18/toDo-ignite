@@ -22,6 +22,14 @@ export default function Tasks(){
         setNewTask("")
     }
 
+    function handleDeleteTask(taskSelected){
+        const newTasksArray = tasks.filter((task) => {
+            return task.id !== taskSelected
+    })
+
+        setTasks(newTasksArray)
+    }
+
     function handleNewTaskChange(e){
         setNewTask(e.target.value)
     }
@@ -70,7 +78,10 @@ export default function Tasks(){
             {tasks.map((task) => {
                 return(
                     <Task
-                        titleTask={task.title}/>
+                        key={task.id}
+                        titleTask={task.title}
+                        onDeleteTask={() => handleDeleteTask(task.id)}
+                    />
                 )
             })}
 

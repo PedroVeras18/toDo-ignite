@@ -74,3 +74,14 @@
     justify-content: center;
     align-items: center;
 }
+
+.DeleteTask button{
+    border: 0;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

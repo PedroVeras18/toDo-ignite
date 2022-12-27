@@ -3,12 +3,17 @@ import './Task.css'
 
 import { FaTrashAlt, FaCheck } from 'react-icons/fa'
 
-export default function Task({ titleTask }){
+export default function Task({ titleTask, onDeleteTask}){
     const [stateTaskCompleted, setStateTaskCompleted] = useState(false)
 
     function alterCheckTask(){
         setStateTaskCompleted(value => !value)
     }
+
+    function handleDeleteTask(){
+        onDeleteTask()
+    }
+
 
     return(
         <div className={stateTaskCompleted ? "CardTaskCompleted" : "CardTaskNotCompleted"}>
@@ -31,7 +36,9 @@ export default function Task({ titleTask }){
                 </div>
             </div>
             <div className="DeleteTask">
-                <FaTrashAlt color="#808080"/>
+                <button onClick={handleDeleteTask}>
+                    <FaTrashAlt size={18} color="#808080"/>
+                </button>
             </div>
         </div>
     )
