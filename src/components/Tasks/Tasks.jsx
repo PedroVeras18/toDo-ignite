@@ -5,36 +5,57 @@ import Task from "../Task/Task";
 
 import { v4 as uuidv4 } from 'uuid';
 import { FaClipboardList } from 'react-icons/fa'
-
-const listTasks = [
-    {
-        id: uuidv4(),
-        title: "Terminar o desafio",
-        isComplete: true
-    },
-    {
-        id: uuidv4(),
-        title: "Estudar Typescript",
-        isComplete: false
-    },
-]
+import { MdAddCircleOutline } from 'react-icons/md'
 
 export default function Tasks(){
-    const [tasks, setTasks] = useState(listTasks)
+    const [tasks, setTasks] = useState([])
+    const [newTask, setNewTask] = useState("")
+
+    function handleAddNewTask(){
+
+        const addNewTask = {
+            id: uuidv4(),
+            title: newTask,
+            isComplete: false,
+        }
+        setTasks([...tasks, addNewTask])
+        setNewTask("")
+    }
+
+    function handleNewTaskChange(e){
+        setNewTask(e.target.value)
+    }
 
     const emptyTasksArray = tasks.length === 0
+    const numberTasksCreated = tasks.length
 
     return(
         <div className="Tasks">
+            <div className="CreateNewTask">
+                <div className="InputNewTask">
+                    <input
+                        type="text"
+                        placeholder="Adicione uma nova tarefa"
+                        value={newTask}
+                        onChange={handleNewTaskChange} />
+                </div>
+                <div className="ButtonNewTask">
+                    <button onClick={handleAddNewTask}>
+                        Criar
+                        <MdAddCircleOutline color="#F2F2F2" size={22}/>
+                    </button>
+                </div>
+            </div>
 
             <div className="NumberTasksCreatedAndFinished">
                 <div className="NumberTasksCreated">
                     <p>Tarefas criadas</p>
-                    <span>5</span>
+                    <span>{numberTasksCreated}</span>
+                    {}
                 </div>
                 <div className="TasksFinished">
                     <p>Concluídas</p>
-                    <span>0</span>
+                    <span>0 de {numberTasksCreated}</span>
                 </div>
             </div>
 

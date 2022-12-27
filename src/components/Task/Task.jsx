@@ -4,7 +4,7 @@ import './Task.css'
 import { FaTrashAlt, FaCheck } from 'react-icons/fa'
 
 export default function Task({ titleTask }){
-    const [stateTaskCompleted, setStateTaskCompleted] = useState(true)
+    const [stateTaskCompleted, setStateTaskCompleted] = useState(false)
 
     function alterCheckTask(){
         setStateTaskCompleted(value => !value)
