@@ -68,7 +68,6 @@ export default function Tasks(){
                 <div className="NumberTasksCreated">
                     <p>Tarefas criadas</p>
                     <span>{numberTasksCreated}</span>
-                    {}
                 </div>
                 <div className="TasksFinished">
                     <p>Concluídas</p>
