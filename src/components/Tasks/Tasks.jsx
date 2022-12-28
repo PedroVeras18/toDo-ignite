@@ -42,6 +42,8 @@ export default function Tasks(){
     }
     console.log("Handle: ", tasks)
 
+    const isNewTaskEmpty = newTask.length === 0 ? true : false
+
     const emptyTasksArray = tasks.length === 0
     const numberTasksCreated = tasks.length
     const taskCompleted = tasks.filter( task => task.isCompleted === true)
@@ -57,7 +59,7 @@ export default function Tasks(){
                         onChange={handleNewTaskChange} />
                 </div>
                 <div className="ButtonNewTask">
-                    <button onClick={handleAddNewTask}>
+                    <button disabled={isNewTaskEmpty} onClick={handleAddNewTask}>
                         Criar
                         <MdAddCircleOutline color="#F2F2F2" size={22}/>
                     </button>
