@@ -16,7 +16,7 @@ export default function Tasks(){
         const addNewTask = {
             id: uuidv4(),
             title: newTask,
-            isComplete: false,
+            isCompleted: false,
         }
         setTasks([...tasks, addNewTask])
         setNewTask("")
@@ -34,8 +34,17 @@ export default function Tasks(){
         setNewTask(e.target.value)
     }
 
+    function handleAddTaskFinished(idTaskSelected){
+        const editTasks = tasks.map(task => task.id == idTaskSelected ? {
+            ...task, isCompleted: !task.isCompleted
+        } : task );
+        setTasks(editTasks)
+    }
+    console.log("Handle: ", tasks)
+
     const emptyTasksArray = tasks.length === 0
     const numberTasksCreated = tasks.length
+    const taskCompleted = tasks.filter( task => task.isCompleted === true)
 
     return(
         <div className="Tasks">
@@ -63,7 +72,7 @@ export default function Tasks(){
                 </div>
                 <div className="TasksFinished">
                     <p>Concluídas</p>
-                    <span>0 de {numberTasksCreated}</span>
+                    <span>{taskCompleted.length} de {numberTasksCreated}</span>
                 </div>
             </div>
 
@@ -79,8 +88,9 @@ export default function Tasks(){
                 return(
                     <Task
                         key={task.id}
-                        titleTask={task.title}
-                        onDeleteTask={() => handleDeleteTask(task.id)}
+                        task={task}
+                        alterCheckTask={() => handleAddTaskFinished(task.id)}
+                        handleDeleteTask={() => handleDeleteTask(task.id)}
                     />
                 )
             })}

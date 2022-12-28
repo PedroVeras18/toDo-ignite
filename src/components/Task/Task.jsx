@@ -1,25 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import './Task.css'
 
 import { FaTrashAlt, FaCheck } from 'react-icons/fa'
 
-export default function Task({ titleTask, onDeleteTask}){
-    const [stateTaskCompleted, setStateTaskCompleted] = useState(false)
-
-    function alterCheckTask(){
-        setStateTaskCompleted(value => !value)
-    }
-
-    function handleDeleteTask(){
-        onDeleteTask()
-    }
-
-
+export default function Task({ task, alterCheckTask, handleDeleteTask }){
     return(
-        <div className={stateTaskCompleted ? "CardTaskCompleted" : "CardTaskNotCompleted"}>
+        <div className={task.isCompleted ? "CardTaskCompleted" : "CardTaskNotCompleted"}>
             <div className="ButtonAndTitleTask">
                 <div className="ButtonCheckedTask">
-                    {stateTaskCompleted ?
+                    {task.isCompleted ?
                         <button className="TaskCompleted" onClick={alterCheckTask}>
                             <FaCheck size={11} color="#F2F2F2"/>
                         </button>
@@ -28,10 +17,10 @@ export default function Task({ titleTask, onDeleteTask}){
                     }
                 </div>
                 <div className="TitleTask">
-                    {stateTaskCompleted ? 
-                        <p className="TitleTaskCompleted"><s>{titleTask}</s></p>
+                    {task.isCompleted ? 
+                        <p className="TitleTaskCompleted"><s>{task.title}</s></p>
                     :
-                        <p className="TitleTaskNotCompleted">{titleTask}</p>
+                        <p className="TitleTaskNotCompleted">{task.title}</p>
                     }
                 </div>
             </div>
